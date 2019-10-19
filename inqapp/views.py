@@ -40,7 +40,7 @@ def question(request):
     eventend = event.event_end
     if (timenow>eventend):
         message="Thank you all"
-        return render('welcome.html',{'message':message})
+        return render(request,'welcome.html',{'message':message})
     else:
         if timenow>eventtime and timenow<eventend:
             if request.user.is_anonymous:
