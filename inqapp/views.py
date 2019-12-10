@@ -151,7 +151,7 @@ def signup(request):
                 message="You are logged in already"
                 return render(request,'signup.html',{'message':message})
         else:
-            message="Weak Password. Password with minimum seven characters,an uppercase alphabet,a number, a special char is recommended"
+            message="Password with minimum six characters is recommended."
             return render(request,'signup.html',{'message':message})
     else:
         form = SignUpForm()
