@@ -40,7 +40,7 @@ def question(request):
     eventend = event.event_end
     if (timenow>eventend):
         message="Thank you all"
-        return render('welcome.html',{'message':message})
+        return render(request,'welcome.html',{'message':message})
     else:
         if timenow>eventtime and timenow<eventend:
             if request.user.is_anonymous:
@@ -151,7 +151,7 @@ def signup(request):
                 message="You are logged in already"
                 return render(request,'signup.html',{'message':message})
         else:
-            message="Weak Password. Password with minimum seven characters,an uppercase alphabet,a number, a special char is recommended"
+            message="Password with minimum six characters is recommended."
             return render(request,'signup.html',{'message':message})
     else:
         form = SignUpForm()
