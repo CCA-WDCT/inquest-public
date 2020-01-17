@@ -145,7 +145,7 @@ def signup(request):
                 user.email_confirmed = True
                 user.last_updated = timezone.now()
                 user.save()
-                message="Registered ! Please Login"
+                message="Registered ! Please Login "
                 return render(request,'registration/login.html',{'message':message})
             else:
                 message="You are logged in already"
