@@ -11,7 +11,7 @@ def default_score():
 
 
 class CustomUser(AbstractUser):
-    user_name = models.CharField(blank=False, max_length=10)
+    user_name = models.EmailField(blank=False, max_length=30)
     name = models.CharField(blank=False, max_length=20)
     score=models.IntegerField(default=default_score())
     college=models.CharField(max_length=30,blank=False,null=False)

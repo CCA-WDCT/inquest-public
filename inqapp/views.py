@@ -131,7 +131,7 @@ def contact(request):
     return render(request,'contact.html')
 
 def logoutred(request):
-    return render(request, 'registration/logged_out.html', {},)
+    return render(request, 'welcome.html', {},)
 
 def signup(request):
     if request.method == 'POST':
@@ -146,7 +146,7 @@ def signup(request):
                 user.last_updated = timezone.now()
                 user.save()
                 message="Registered ! Please Login"
-                return render(request,'signup.html',{'message':message})
+                return render(request,'registration/login.html',{'message':message})
             else:
                 message="You are logged in already"
                 return render(request,'signup.html',{'message':message})
