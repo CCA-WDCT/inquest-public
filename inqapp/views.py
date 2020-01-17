@@ -99,7 +99,7 @@ def home(request):
     timeleft=int(timeleft)
     if timenow < eventtime:
         #pass timeleft
-        message="welcome"
+        message="welcome the game will start soon "
         timeleft = (eventtime-timenow).total_seconds()
         timeleft =int(timeleft)
         return render(request,'welcome.html',{'message':message,'timeleft':timeleft})
@@ -145,11 +145,15 @@ def signup(request):
                 user.email_confirmed = True
                 user.last_updated = timezone.now()
                 user.save()
-                message="Registered ! Please Login "
-                return render(request,'registration/login.html',{'message':message})
+                new_user = authenticate(username=form.cleaned_data['username'],
+                                        password=form.cleaned_data['password1'],
+                                        )
+                login(request, new_user)
+                message="Logged In !"
+                return render(request,'welcome.html',{'message':message})
             else:
                 message="You are logged in already"
-                return render(request,'signup.html',{'message':message})
+                return render(request,'welcome.html',{'message':message})
         else:
             message="Password with minimum six characters is recommended."
             return render(request,'signup.html',{'message':message})

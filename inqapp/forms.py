@@ -5,7 +5,7 @@ from .models import CustomUser,Question
 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    # email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     class Meta(UserCreationForm.Meta):
         model = CustomUser
         fields = ('username','college','name',)
@@ -17,7 +17,7 @@ class SignUpForm(UserCreationForm):
             username = cleaned_data.get('username')
             college = cleaned_data.get('college')
             password1 = cleaned_data.get('password1')
-            password2 = cleaned_data.get('password2')
+            password2 = cleaned_data.get('password1')
 #            if not name and not username and not email and not college and not password1:
 #                raise forms.ValidationError('You have to write something and passwords should match!')
 
